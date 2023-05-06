@@ -2,4 +2,124 @@
 
 .Jobs {
   font-size: 1.2rem;
+
+  .jobs_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .job {
+    width: 100%;
+    box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.01);
+    border-radius: 0.6rem;
+    padding: 1rem;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+    }
+
+    .job_header {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 0.6rem;
+        margin-right: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $neutral-500;
+      }
+
+      .company_name {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: $primary-blue;
+      }
+
+      .right_tags {
+        margin-left: auto;
+        display: flex;
+        gap: 1rem;
+        margin-right: 1.6rem;
+
+        .opportunity,
+        .workplace {
+          font-size: 1.3rem;
+          font-weight: 500;
+          background: $neutral-000;
+
+          padding: 0.5rem 1rem;
+          border-radius: 0.6rem;
+          height: max-content;
+        }
+
+        .opportunity {
+          border: 1px solid $primary-pink;
+          color: $primary-pink;
+        }
+
+        .workplace {
+          background: rgba($primary-blue, 0.1);
+          padding: 0.7rem 1rem;
+        }
+      }
+    }
+
+    .job_body {
+      display: flex;
+      margin-top: 1.6rem;
+      gap: 3rem;
+
+      .line {
+        width: 0.2rem;
+        height: 4rem;
+        background: $neutral-100;
+      }
+
+      .salary {
+        padding: 0 1rem;
+
+        .salary_heading {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: $neutral-300;
+          margin-bottom: 0.2rem;
+        }
+
+        .salary_range {
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: $neutral-500;
+        }
+      }
+
+      .apply {
+        margin-left: auto;
+        margin-right: 1.6rem;
+
+        button {
+          border: none;
+          gap: 1rem;
+          padding: 0.6rem 2rem;
+          border-radius: 0.6rem;
+          background: $primary-blue;
+          color: $neutral-000;
+          font-size: 1.6rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: 0.2s all ease;
+        }
+      }
+    }
+  }
 }

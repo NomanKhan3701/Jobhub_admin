@@ -14,12 +14,7 @@ const Filter = () => {
             <div className={styles.title}>
                 <h3>Filter</h3>
                 <div className={styles.util}>
-                    <div className={styles.clear + ` ${batch || opportunityType || workplace ? styles.enabled : ''}`} onClick={() => {
-                        setBatch(null);
-                        setOpportunityType(null);
-                        setWorkplace(null);
-                    }
-                    }>Reset</div>
+                    123 Results
                 </div>
             </div>
             <div className={styles.filter_item}>
@@ -34,7 +29,9 @@ const Filter = () => {
                 <div className={styles.heading}>Workplace</div>
                 <WorkplaceDropdown value={workplace} setValue={setWorkplace} />
             </div>
-
+            <div className={styles.filter}>
+                <button>Apply Filters</button>
+            </div>
         </div>
 
     )
