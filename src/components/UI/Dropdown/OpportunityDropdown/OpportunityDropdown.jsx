@@ -25,7 +25,7 @@ const OpportunityDropdown = ({ value, setValue }) => {
     }
     return (
         <div className={styles.Batch_dropdown}>
-            <Dropdown Options={Options} placeholder="Select Batch" value={value} />
+            <Dropdown Options={Options} placeholder="Select Oppotunity type" value={value} />
         </div>
     )
 }

@@ -5,12 +5,42 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   border-radius: 0.6rem;
-  padding: 2rem 1.6rem;
   background: $neutral-000;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
+
+  .title {
+    border-bottom: 2px solid $neutral-100;
+    padding-bottom: 1rem;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .clear {
+      font-size: 1.3rem;
+      color: $neutral-300;
+      font-weight: 500;
+
+      &.enabled {
+        color: $primary-red;
+        cursor: pointer;
+      }
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $neutral-500;
+    }
+  }
+
+  .filter_item {
+    padding: 0 1.6rem;
+  }
+
   .heading {
     font-size: 1.3rem;
     color: $neutral-300;

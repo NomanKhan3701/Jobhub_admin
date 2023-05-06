@@ -39,7 +39,7 @@
     display: flex;
     gap: 3rem;
     margin-top: $pd-bottom-nav;
-    min-height: 100vh;
+    min-height: calc(100vh - $pd-bottom-nav - $navbar-height);
 
     .filter_wrapper {
       width: 40rem;

@@ -25,7 +25,7 @@ const WorkplaceDropdown = ({ value, setValue }) => {
     }
     return (
         <div className={styles.Batch_dropdown}>
-            <Dropdown Options={Options} placeholder="Select Batch" value={value} />
+            <Dropdown Options={Options} placeholder="Select Workplace" value={value} />
         </div>
     )
 }
