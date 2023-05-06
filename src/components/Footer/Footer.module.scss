@@ -1,0 +1,83 @@
+@import "@/assets/styles/variables";
+
+.Footer {
+  margin-top: auto;
+  background: $primary-dark-blue;
+  color: $neutral-000;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-size: 1.2rem;
+  display: flex;
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-size: 1.7rem;
+    font-weight: 600;
+
+    span {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      background: $primary-blue;
+      color: $neutral-000;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.6rem;
+    }
+  }
+
+  .heading {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #707b91;
+    margin-bottom: 2rem;
+  }
+
+  .links_container {
+    margin-left: auto;
+    margin-right: 10rem;
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: $neutral-100;
+    }
+  }
+
+  .socials {
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+
+      .link {
+        cursor: pointer;
+        background: $neutral-100;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.6rem;
+        display: grid;
+        place-items: center;
+        color: $primary-dark-blue;
+
+        // &.whatsapp {
+        //   color: #25d366;
+        // }
+
+        // &.linkedin {
+        //   color: #0a66c2;
+        // }
+
+        // &.telegram {
+        //   color: #0088cc;
+        // }
+
+        svg {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
