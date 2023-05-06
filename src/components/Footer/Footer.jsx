@@ -50,7 +50,7 @@ const Footer = () => {
                     {
                         creators.map((creator, index) => {
                             return (
-                                <a className={styles.link} href={creator.link} target='_blank'>
+                                <a className={styles.link} href={creator.link} target='_blank' key={index}>
                                     {creator.name}
                                 </a>
                             )
