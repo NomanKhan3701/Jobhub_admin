@@ -68,7 +68,14 @@ const JobUpload = () => {
 
                 {
                     addFullSalaryShow ? <>
-                        <div className={styles.title}>Full time salary details</div>
+                        <div className={styles.title}>
+                            <div className={styles.txt}>
+                                Full time salary details
+                            </div>
+                            <div className={styles.close_btn} onClick={() => setAddFullSalaryShow(false)}>
+                                Cancel
+                            </div>
+                        </div>
                         <div className={styles.group_item}>
                             <div className={styles.form_item}>
                                 <div className={styles.label}>Min</div>
@@ -90,7 +97,14 @@ const JobUpload = () => {
                 }
                 {
                     addInternSalaryShow ? <>
-                        <div className={styles.title}>Intern salary details</div>
+                        <div className={styles.title}>
+                            <div className={styles.txt}>
+                                Intern salary details
+                            </div>
+                            <div className={styles.close_btn} onClick={() => setAddInternSalaryShow(false)}>
+                                Cancel
+                            </div>
+                        </div>
                         <div className={styles.group_item}>
                             <div className={styles.form_item}>
                                 <div className={styles.label}>Min</div>
