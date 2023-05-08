@@ -10,6 +10,84 @@
   .form {
     box-shadow: $box-shadow-light;
     border-radius: 0.6rem;
-    padding: 0.8rem;
+    padding: 2rem;
+    width: 80rem;
+    max-width: calc(100% - 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    .form_item {
+      width: 24rem;
+
+      @media screen and (max-width: $break-point-mobile-sm) {
+        width: 100%;
+      }
+
+      .label {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $neutral-600;
+        margin-bottom: 0.8rem;
+      }
+
+      .salary_input {
+        width: 100%;
+        height: 3.5rem;
+        border: 2px solid $neutral-200;
+        border-radius: 0.6rem;
+        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    .group_item {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: $neutral-300;
+    }
+
+    .add_btn {
+      display: flex;
+      font-size: 1.2rem;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+
+      font-weight: 500;
+
+      .txt {
+        color: $primary-blue;
+      }
+
+      svg {
+        font-size: 1.4rem;
+        color: $primary-blue;
+      }
+    }
+
+    .submit_btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      border-radius: 0.6rem;
+      background-color: $primary-blue;
+      color: $neutral-000;
+      font-size: 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      transition: all 0.2s ease-in-out;
+    }
   }
 }

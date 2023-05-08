@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react'
-import styles from './BatchesDropdown.module.scss'
+import styles from '../MultiSelectDropdown.module.scss'
 import MultiSelectDropdown from '../MultiSelectDropdown'
 import { batches } from '@/shared/constants'
 
 const BatchesDropdown = ({ selected, setSelected }) => {
-    const [value, setValue] = React.useState("");
+    const [value, setValue] = React.useState("")
 
     const Options = () => {
         const selectBatch = (batch) => {
             if (!selected.includes(batch)) {
                 setSelected((prev) => [...prev, batch])
-            } 
+            }
         }
 
         return (
             <div>
                 {
-                    batches?.map((item) => {
+                    batches?.filter((item) => item.name.toString().includes(value)).map((item) => {
                         return (
-                            <div key={item.id} className={styles.option + ` ${value === item.name ? styles.active : ""}`} onClick={() => selectBatch(item.name)}>
+                            <div key={item.id} className={styles.option} onClick={() => selectBatch(item.name)}>
                                 {item.name}
                             </div>
                         )
@@ -30,7 +30,7 @@ const BatchesDropdown = ({ selected, setSelected }) => {
 
     return (
         <div className={styles.Batches_dropdown}>
-            <MultiSelectDropdown Options={Options} placeholder="Select Batch" value={value} setValue={setValue} selected={selected} setSelected={setSelected} />
+            <MultiSelectDropdown Options={Options} placeholder="Select Batch" selected={selected} setSelected={setSelected} value={value} setValue={setValue} />
         </div>
     )
 }

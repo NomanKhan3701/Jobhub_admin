@@ -9,6 +9,14 @@ export const batches = [
     { name: 2026, },
 ]
 
+export const currencies = [
+    { name: '₹', },
+    { name: '$', },
+    { name: '€', },
+    { name: '£', },
+    { name: '¥', },
+]
+
 export const opportunityTypes = [
     { name: 'Internship', },
     { name: 'Full Time', },

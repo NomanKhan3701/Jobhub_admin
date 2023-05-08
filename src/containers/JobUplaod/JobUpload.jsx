@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from './JobUpload.module.scss'
-import { IoIosAddCircle } from 'react-icons/io'
+import { IoAddCircleOutline } from 'react-icons/io5'
 import BatchesDropdown from '@/components/UI/MultiSelectDropdown/BatchesDropdown/BatchesDropdown'
 import OpportunityDropdown from '@/components/UI/Dropdown/OpportunityDropdown/OpportunityDropdown'
 import WorkplaceDropdown from '@/components/UI/Dropdown/WorkplaceDropdown/WorkplaceDropdown'
 import JobTitleDropdown from '@/components/UI/InputDropdown/JobTitleDropdown/JobTitleDropdown'
 import CompanyDropdown from '@/components/UI/InputDropdown/CompanyDropdown/CompanyDropdown'
+import CurrencyDropdown from '@/components/UI/Dropdown/CurrencyDropdown/CurrencyDropdown'
+import { currencies } from '@/shared/constants'
 
 const JobUpload = () => {
     const [batches, setBatches] = React.useState([])
@@ -13,52 +15,103 @@ const JobUpload = () => {
     const [workplace, setWorkplace] = React.useState("")
     const [jobTitle, setJobTitle] = React.useState("")
     const [company, setCompany] = React.useState("")
+    const [fullTimeSalary, setFullTimeSalary] = React.useState({
+        low: "",
+        high: "",
+        currency: currencies[0].name
+    })
+    const [internSalary, setInternSalary] = React.useState({
+        low: "",
+        high: "",
+        currency: currencies[0].name
+    })
 
     const [addFullSalaryShow, setAddFullSalaryShow] = React.useState(false)
     const [addInternSalaryShow, setAddInternSalaryShow] = React.useState(false)
+    const [addCompanyImageShow, setAddCompanyImageShow] = React.useState(false)
 
-    
 
     return (
         <div className={styles.Job_upload}>
             <div className={styles.form}>
-                <div className={styles.form_item}>
-                    <label>Job Title</label>
-                    <JobTitleDropdown value={jobTitle} setValue={setJobTitle} />
+                <div className={styles.group_item}>
+                    <div className={styles.form_item}>
+                        <div className={styles.label}>Job Title</div>
+                        <JobTitleDropdown value={jobTitle} setValue={setJobTitle} />
+                    </div>
+                    <div className={styles.form_item}>
+                        <div className={styles.label}>Company Name</div>
+                        <CompanyDropdown value={company} setValue={setCompany} />
+                    </div>
+                    {
+                        addCompanyImageShow && <div className={styles.form_item}>
+                            <div className={styles.label}>Company Image</div>
+                            <input type="file" />
+                        </div>
+                    }
                 </div>
-                <div className={styles.form_item}>
-                    <label>Company Name</label>
-                    <CompanyDropdown value={company} setValue={setCompany} />
+
+                <div className={styles.group_item}>
+                    <div className={styles.form_item}>
+                        <div className={styles.label}>Batches Eligible</div>
+                        <BatchesDropdown setSelected={setBatches} selected={batches} />
+                    </div>
+                    <div className={styles.form_item}>
+                        <div className={styles.label}>Oppurtunity Type</div>
+                        <OpportunityDropdown value={opportunity} setValue={setOpportunity} />
+                    </div>
+                    <div className={styles.form_item}>
+                        <div className={styles.label}>Workplace</div>
+                        <WorkplaceDropdown value={workplace} setValue={setWorkplace} />
+                    </div>
                 </div>
-                <div className={styles.form_item}>
-                    <label>Company Image</label>
-                    <input type="file" />
-                </div>
-                <div className={styles.form_item}>
-                    <label>Batches Eligible</label>
-                    <BatchesDropdown setSelected={setBatches} selected={batches} />
-                </div>
-                <div className={styles.form_item}>
-                    <label>Oppurtunity Type</label>
-                    <OpportunityDropdown value={opportunity} setValue={setOpportunity} />
-                </div>
-                <div className={styles.form_item}>
-                    <label>Workplace</label>
-                    <WorkplaceDropdown value={workplace} setValue={setWorkplace} />
-                </div>
+
                 {
-                    addFullSalaryShow ? <></> : <div className={styles.add_btn} onClick={() => setAddFullSalaryShow(true)}>
-                        <IoIosAddCircle />
-                        <div>Add Full Time Salary</div>
+                    addFullSalaryShow ? <>
+                        <div className={styles.title}>Full time salary details</div>
+                        <div className={styles.group_item}>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Min</div>
+                                <input className={styles.salary_input} placeholder='Enter the lower range' type="number" value={fullTimeSalary.low} onChange={(e) => setFullTimeSalary({ ...fullTimeSalary, low: e.target.value })} />
+                            </div>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Max</div>
+                                <input type="number" placeholder='Enter the higher range' className={styles.salary_input} value={fullTimeSalary.high} onChange={(e) => setFullTimeSalary({ ...fullTimeSalary, high: e.target.value })} />
+                            </div>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Currency</div>
+                                <CurrencyDropdown value={fullTimeSalary.currency} setValue={(value) => setFullTimeSalary({ ...fullTimeSalary, currency: value })} />
+                            </div>
+                        </div>
+                    </> : <div className={styles.add_btn} onClick={() => setAddFullSalaryShow(true)}>
+                        <IoAddCircleOutline />
+                        <div className={styles.txt}>Add Full Time Salary</div>
                     </div>
                 }
                 {
-                    addInternSalaryShow ? <></> : <div className={styles.add_btn} onClick={() => setAddFullSalaryShow(true)}>
-                        <IoIosAddCircle />
-                        <div>Add Intern Salary</div>
+                    addInternSalaryShow ? <>
+                        <div className={styles.title}>Intern salary details</div>
+                        <div className={styles.group_item}>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Min</div>
+                                <input className={styles.salary_input} placeholder='Enter the lower range' type="number" value={internSalary.low} onChange={(e) => setInternSalary({ ...internSalary, low: e.target.value })} />
+                            </div>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Max</div>
+                                <input type="number" placeholder='Enter the higher range' className={styles.salary_input} value={internSalary.high}
+                                    onChange={(e) => setInternSalary({ ...internSalary, high: e.target.value })} />
+                            </div>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Currency</div>
+                                <CurrencyDropdown value={internSalary.currency} setValue={(value) => setInternSalary({ ...internSalary, currency: value })} />
+                            </div>
+                        </div>
+                    </> : <div className={styles.add_btn} onClick={() => setAddInternSalaryShow(true)}>
+                        <IoAddCircleOutline />
+                        <div className={styles.txt}>Add Intern Salary</div>
                     </div>
                 }
-                <button>Post the job</button>
+                <button className={styles.submit_btn}>Post the job</button>
             </div>
         </div>
     )

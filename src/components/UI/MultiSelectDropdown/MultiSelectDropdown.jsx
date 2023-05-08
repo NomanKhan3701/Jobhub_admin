@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './MultiSelectDropdown.module.scss'
 import useClickOutside from '@/hooks/useClickedOutside'
 import { IoIosRemove } from 'react-icons/io'
+import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai'
 
 const MultiSelectDropdown = ({ Options, placeholder, value = "", setValue, selected = [], setSelected }) => {
     const [show, setShow] = React.useState(false)
@@ -29,7 +30,13 @@ const MultiSelectDropdown = ({ Options, placeholder, value = "", setValue, selec
                         </div>
                     )
                 }
-                <input type="text" placeholder={placeholder} value={value} onChange={(e) => setValue(e.target.value)} />
+                <div className={styles.input}>
+                    <input type="text" placeholder={placeholder} value={value} onChange={(e) => setValue(e.target.value)} />
+                    {
+                        show ? <AiOutlineUp /> : <AiOutlineDown />
+                    }
+                </div>
+
             </div>
             <div className={styles.options + ` ${show ? styles.show : ""}` + " hide-scrollbar"}>
                 <Options />
