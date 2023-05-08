@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from "./Layout.module.scss";
 import * as actions from "@/store/actions/index";
 import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/Navbar/Navbar";
 
 
 const Layout = (props) => {
@@ -24,7 +23,7 @@ const Layout = (props) => {
 
   return (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className={classes.Layout}>
         {props.children}

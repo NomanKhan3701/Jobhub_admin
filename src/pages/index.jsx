@@ -1,5 +1,5 @@
+import JobUpload from '@/containers/JobUplaod/JobUpload'
 import Head from 'next/head'
-import JobsPage from '@/containers/JobsPage/JobsPage';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </Head>
-      <JobsPage />
+      <JobUpload />
     </>
   )
 }
