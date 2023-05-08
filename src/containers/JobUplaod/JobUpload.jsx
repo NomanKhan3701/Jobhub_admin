@@ -36,19 +36,18 @@ const JobUpload = () => {
             <div className={styles.form}>
                 <div className={styles.group_item}>
                     <div className={styles.form_item}>
-                        <div className={styles.label}>Job Title</div>
+                        <div className={styles.label}>Job Title <span>*</span></div>
                         <JobTitleDropdown value={jobTitle} setValue={setJobTitle} />
                     </div>
                     <div className={styles.form_item}>
-                        <div className={styles.label}>Company Name</div>
+                        <div className={styles.label}>Company Name <span>*</span></div>
                         <CompanyDropdown value={company} setValue={setCompany} />
                     </div>
-                    {
-                        addCompanyImageShow && <div className={styles.form_item}>
-                            <div className={styles.label}>Company Image</div>
-                            <input type="file" />
-                        </div>
-                    }
+                </div>
+                <div className={styles.form_item_full}>
+                    <div className={styles.label}>Company Image (Only add image if company not available in the dropdown)</div>
+                    <div className={styles.info}>Please upload an image with square dimension (e.g. 512px X 512px)</div>
+                    <input type="file" />
                 </div>
 
                 <div className={styles.group_item}>
@@ -57,7 +56,7 @@ const JobUpload = () => {
                         <BatchesDropdown setSelected={setBatches} selected={batches} />
                     </div>
                     <div className={styles.form_item}>
-                        <div className={styles.label}>Oppurtunity Type</div>
+                        <div className={styles.label}>Oppurtunity Type <span>*</span></div>
                         <OpportunityDropdown value={opportunity} setValue={setOpportunity} />
                     </div>
                     <div className={styles.form_item}>
@@ -67,7 +66,7 @@ const JobUpload = () => {
                 </div>
 
                 {
-                    addFullSalaryShow ? <>
+                    addFullSalaryShow ? <div>
                         <div className={styles.title}>
                             <div className={styles.txt}>
                                 Full time salary details
@@ -90,13 +89,13 @@ const JobUpload = () => {
                                 <CurrencyDropdown value={fullTimeSalary.currency} setValue={(value) => setFullTimeSalary({ ...fullTimeSalary, currency: value })} />
                             </div>
                         </div>
-                    </> : <div className={styles.add_btn} onClick={() => setAddFullSalaryShow(true)}>
+                    </div> : <div className={styles.add_btn} onClick={() => setAddFullSalaryShow(true)}>
                         <IoAddCircleOutline />
                         <div className={styles.txt}>Add Full Time Salary</div>
                     </div>
                 }
                 {
-                    addInternSalaryShow ? <>
+                    addInternSalaryShow ? <div>
                         <div className={styles.title}>
                             <div className={styles.txt}>
                                 Intern salary details
@@ -120,7 +119,7 @@ const JobUpload = () => {
                                 <CurrencyDropdown value={internSalary.currency} setValue={(value) => setInternSalary({ ...internSalary, currency: value })} />
                             </div>
                         </div>
-                    </> : <div className={styles.add_btn} onClick={() => setAddInternSalaryShow(true)}>
+                    </div> : <div className={styles.add_btn} onClick={() => setAddInternSalaryShow(true)}>
                         <IoAddCircleOutline />
                         <div className={styles.txt}>Add Intern Salary</div>
                     </div>

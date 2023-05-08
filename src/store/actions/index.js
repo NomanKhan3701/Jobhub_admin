@@ -18,5 +18,6 @@ export {
 } from './popup';
 
 export {
-    setFilter,
+    setJobTitles,
+    setCompanies,
 } from './jobs';

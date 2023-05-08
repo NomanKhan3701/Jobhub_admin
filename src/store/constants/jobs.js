@@ -1,1 +1,2 @@
-export const SET_FILTER = "SET_FILTER";
+export const SET_JOB_TITLES = "SET_JOB_TITLES";
+export const SET_COMPANIES = "SET_COMPANIES";
