@@ -2,7 +2,8 @@ import * as actionTypes from "../constants/auth";
 import { updateObject } from "../../shared/utility";
 
 const initialState = {
-	token: null,
+	// token: null,
+	token: "null",
 	user: null,
 	loginInProgress: false,
 	redirectHomeAsNotVerified: null,
