@@ -3,7 +3,7 @@ import { updateObject } from "../../shared/utility";
 
 const initialState = {
 	// token: null,
-	token: "null",
+	token: "JWT",
 	user: null,
 	loginInProgress: false,
 	redirectHomeAsNotVerified: null,

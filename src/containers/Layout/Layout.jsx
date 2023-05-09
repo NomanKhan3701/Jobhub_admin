@@ -12,14 +12,14 @@ import Footer from "@/components/Footer/Footer";
 const Layout = (props) => {
   const dispatch = useDispatch();
 
-  const onTryAutoSignup = useCallback(
-    () => dispatch(actions.authCheckState()),
-    [dispatch]
-  );
+  // const onTryAutoSignup = useCallback(
+  //   () => dispatch(actions.authCheckState()),
+  //   [dispatch]
+  // );
 
-  useEffect(() => {
-    onTryAutoSignup();
-  }, [onTryAutoSignup]);
+  // useEffect(() => {
+  //   onTryAutoSignup();
+  // }, [onTryAutoSignup]);
 
   return (
     <React.Fragment>

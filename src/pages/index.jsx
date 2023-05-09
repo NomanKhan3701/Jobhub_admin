@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 export default function Home() {
   const token = useSelector(state => state.auth.token);
-
+  console.log("token ", token)
 
   return (
     <>
@@ -21,7 +21,6 @@ export default function Home() {
       {
         token ? <JobUpload /> : <Auth />
       }
-
     </>
   )
 }
