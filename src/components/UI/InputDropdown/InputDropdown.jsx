@@ -13,14 +13,14 @@ const InputDropdown = ({ Options, placeholder, value, setValue }) => {
     }, [value])
 
     return (
-        <div className={styles.Input_dropdown + " primary-scroll"}>
+        <div className={styles.Input_dropdown}>
             <div className={styles.dropdown_select} onClick={() => setShow((state) => !state)} ref={dropdownRef}>
                 <div className={styles.input}>
                     <input type="text" placeholder={placeholder} value={value} onChange={(e) => setValue(e.target.value)} />
                     <BiSearchAlt />
                 </div>
             </div>
-            <div className={styles.options + ` ${show ? styles.show : ""}` + " hide-scrollbar"} onClick={() => setShow(false)}>
+            <div className={styles.options + ` ${show ? styles.show : ""}` + " hide_scrollbar"} onClick={() => setShow(false)}>
                 <Options />
             </div>
         </div>

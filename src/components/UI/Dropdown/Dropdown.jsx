@@ -12,7 +12,7 @@ const Dropdown = ({ Options, placeholder, value }) => {
             <div className={styles.dropdown_select} onClick={() => setShow((state) => !state)} ref={dropdownRef}>
                 <div>{value || placeholder}</div>
             </div>
-            <div className={styles.options + ` ${show ? styles.show : ""}` + " hide-scrollbar"} onClick={() => setShow(false)}>
+            <div className={styles.options + ` ${show ? styles.show : ""}` + " hide_scrollbar"} onClick={() => setShow(false)}>
                 <Options />
             </div>
         </div>

@@ -1,7 +1,12 @@
+import Auth from '@/containers/Auth/Auth';
 import JobUpload from '@/containers/JobUplaod/JobUpload'
 import Head from 'next/head'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
+  const token = useSelector(state => state.auth.token);
+
+
   return (
     <>
       <Head>
@@ -13,7 +18,10 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </Head>
-      <JobUpload />
+      {
+        token ? <JobUpload /> : <Auth />
+      }
+
     </>
   )
 }

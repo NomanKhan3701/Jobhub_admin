@@ -38,7 +38,7 @@ const MultiSelectDropdown = ({ Options, placeholder, value = "", setValue, selec
                 </div>
 
             </div>
-            <div className={styles.options + ` ${show ? styles.show : ""}` + " hide-scrollbar"}>
+            <div className={styles.options + ` ${show ? styles.show : ""}` + " hide_scrollbar"}>
                 <Options />
             </div>
         </div>
