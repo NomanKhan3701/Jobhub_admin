@@ -9,6 +9,12 @@
   font-size: 1.2rem;
   display: flex;
 
+  @media screen and (max-width: $break-point-tab-lg) {
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
   .Logo {
     display: flex;
     align-items: center;
@@ -36,6 +42,12 @@
   .links_container {
     margin-left: auto;
     margin-right: 10rem;
+
+    @media screen and (max-width: $break-point-tab-lg) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .links {
       display: flex;
       flex-direction: column;
