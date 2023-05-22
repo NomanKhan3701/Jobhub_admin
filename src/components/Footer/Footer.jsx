@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.scss';
 import Link from 'next/link';
-import { BsWhatsapp } from 'react-icons/bs'
+import { BsWhatsapp, BsArrowUpRightCircle, BsBoxArrowUpRight } from 'react-icons/bs'
 import { FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa'
 
 const Footer = () => {
@@ -52,6 +52,7 @@ const Footer = () => {
                             return (
                                 <a className={styles.link} href={creator.link} target='_blank' key={index}>
                                     {creator.name}
+                                    <BsBoxArrowUpRight />
                                 </a>
                             )
                         })

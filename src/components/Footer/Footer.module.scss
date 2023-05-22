@@ -73,6 +73,17 @@
         flex-direction: row;
         flex-wrap: wrap;
       }
+
+      .link {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+          font-size: 1.2rem;
+        }
+      }
     }
   }
 

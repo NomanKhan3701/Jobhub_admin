@@ -1,11 +1,34 @@
 import Auth from '@/containers/Auth/Auth';
 import JobUpload from '@/containers/JobUplaod/JobUpload'
 import Head from 'next/head'
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import * as actions from '@/store/actions';
+import { useDispatch } from 'react-redux';
 
 export default function Home() {
-  const token = useSelector(state => state.auth.token);
-  console.log("token ", token)
+  const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      getOrganizations();
+    }
+  }, [user])
+
+  const getOrganizations = async () => {
+    try {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/organization/all`);
+      dispatch(actions.setCompanies(res.data));
+    } catch (e) {
+      toast.error("Something went wrong while fetching organizations");
+      console.log(e);
+    }
+  }
+
+
 
   return (
     <>
@@ -19,7 +42,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </Head>
       {
-        token ? <JobUpload /> : <Auth />
+        user ? <JobUpload /> : <Auth />
       }
     </>
   )

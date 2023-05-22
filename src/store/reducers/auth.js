@@ -2,8 +2,8 @@ import * as actionTypes from "../constants/auth";
 import { updateObject } from "../../shared/utility";
 
 const initialState = {
-	// token: null,
-	token: "JWT",
+	token: null,
+	// token: "JWT",
 	user: null,
 	loginInProgress: false,
 	redirectHomeAsNotVerified: null,
@@ -31,6 +31,10 @@ const authSuccess = (state, action) => {
 		loading: false,
 		message: null
 	})
+}
+
+const setUser = (state, action) => {
+	return updateObject(state, { user: action.data })
 }
 
 const authFail = (state, action) => {
@@ -72,6 +76,8 @@ const authReducer = (state = initialState, action) => {
 			return authLogout(state, action)
 		case actionTypes.SET_REDIRECT_PATH_HOME_USER_NOT_VERIFIED:
 			return setRedirectPathHomeAsUserNotVerified(state, action)
+		case actionTypes.SET_USER:
+			return setUser(state, action)
 		default:
 			return state
 	}

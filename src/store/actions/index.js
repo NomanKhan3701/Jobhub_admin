@@ -8,7 +8,8 @@ export {
     authUnverifiedUser,
     authVerifiedAndRegisteredUser,
     logout,
-    setRedirectPathHomeAsUserNotVerified
+    setRedirectPathHomeAsUserNotVerified,
+    setUser,
 } from './auth';
 
 export {

@@ -147,3 +147,10 @@ export const setRedirectPathHomeAsUserNotVerified = (value) => {
     value: value,
   };
 };
+
+export const setUser = (data) => {
+  return {
+    type: actionTypes.SET_USER,
+    data: data,
+  };
+}
